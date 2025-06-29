@@ -1,9 +1,8 @@
 name: build
 
 on:
-  push:
-    branches:
-      - main
+  schedule:
+    - cron: "5 0 * * *"
 
 env:
   REGISTRY_IMAGE: git.schaerer.me/mineiwik/riscv-rust
