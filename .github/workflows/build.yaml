@@ -23,6 +23,12 @@ jobs:
             runner: ubuntu-24.04-arm
     runs-on: ${{ matrix.runner }}
     steps:
+      - name: Initial disk space
+        run: df -h
+      - name: Delete huge unnecessary tools folder
+        run: rm -rf /opt/hostedtoolcache
+      - name: Disk space after clean-up
+        run: df -h
       - name: Prepare
         run: |
           platform=${{ matrix.platform }}
