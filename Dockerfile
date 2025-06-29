@@ -1,6 +1,6 @@
 ARG RUST_VERSION=1.88.0
 
-FROM git.schaerer.me/mineiwik/riscv-toolchain:latest AS builder
+FROM ghcr.io/kevin-schaerer/riscv-toolchain:main AS builder
 
 ARG RUST_VERSION
 
@@ -56,7 +56,7 @@ RUN cd dist \
     && ./rust-std-${RUST_VERSION}-riscv32imac-unknown-linux-gnu/install.sh --prefix=$HOME/.rustup/toolchains/ntl \
     && rm -rf rust-std-${RUST_VERSION}-riscv32imac-unknown-linux-gnu*
 
-FROM git.schaerer.me/mineiwik/riscv-toolchain:latest
+FROM ghcr.io/kevin-schaerer/riscv-toolchain:main
 
 ARG RUST_VERSION
 
