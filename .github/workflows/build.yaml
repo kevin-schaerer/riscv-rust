@@ -25,8 +25,16 @@ jobs:
     steps:
       - name: Initial disk space
         run: df -h
-      - name: Delete huge unnecessary tools folder
-        run: rm -rf /opt/hostedtoolcache
+      - name: Clean-up
+        run: |
+          rm -rf /opt/hostedtoolcache
+          sudo apt-get remove -y '^ghc-8.*'
+          sudo apt-get remove -y '^dotnet-.*'
+          sudo apt-get remove -y '^llvm-.*'
+          sudo apt-get remove -y 'php.*'
+          sudo apt-get remove -y azure-cli google-cloud-sdk hhvm google-chrome-stable firefox powershell mono-devel
+          sudo apt-get autoremove -y
+          sudo apt-get clean
       - name: Disk space after clean-up
         run: df -h
       - name: Prepare
