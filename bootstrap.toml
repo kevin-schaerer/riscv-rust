@@ -8,6 +8,9 @@ target = ["riscv32imac-unknown-linux-gnu"]
 channel = "stable"
 description = "Rust for NTL Hive-S SoC"
 
+[llvm]
+download-ci-llvm = true
+
 [target.riscv32imac-unknown-linux-gnu]
 cc = "clang"
 cxx = "clang++"
