@@ -9,9 +9,9 @@ RUST_SRC=$PWD/rust
 
 mkdir dist
 
-git clone --recursive https://github.com/kevin-schaerer/rust.git $RUST_SRC -b $RUST_TAG --depth 1
+git clone --filter='blob:none' https://github.com/kevin-schaerer/rust.git $RUST_SRC -b $RUST_TAG
 
-cp config.toml $RUST_SRC/config.toml
+cp bootstrap.toml $RUST_SRC/bootstrap.toml
 
 pushd $RUST_SRC
 
