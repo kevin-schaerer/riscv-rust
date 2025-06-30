@@ -38,7 +38,7 @@ RUN sudo apt-get update \
     && sudo apt-get clean \
     && sudo rm -rf /var/lib/apt/lists/*
 
-COPY --chown=ntl config.toml config.toml
+COPY --chown=ntl bootstrap.toml bootstrap.toml
 COPY --chown=ntl build.sh build.sh
 RUN chmod +x build.sh \
     && ./build.sh ${RUST_VERSION} \
